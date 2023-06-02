@@ -15,7 +15,7 @@ In .env file set all the details (PORT,DBPORT,HOST,USER,KEY,PASSWORD)
 
 Later in config/config.js file 
 
--------------------------------
+--------------------------------------------------------------
 
 require("dotenv").config();
 const config = {
@@ -24,7 +24,7 @@ const config = {
 
 export config;
 
--------------------------------
+--------------------------------------------------------------
 
 Later in DB/connection.js
 
@@ -52,7 +52,7 @@ knex
 module.exports = knex;
 
 
--------------------------------
+--------------------------------------------------------------
 
 Than in index.js file import express 
 const connection = require("./DB/connection.js)
@@ -69,7 +69,122 @@ app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => console.log(`Listening to ${port}`));
 
 
+--------------------------------------------------------------
 
-abc
+Later in model/auth.js file 
+
+import - const knex = require("../DB/connection");
+
+
+create a function as per you want 
+
+async addUser(){
+
+}
+
+
+modules.exports = {
+
+addUser,ETC...
+
+}
+
+--------------------------------------------------------------
+
+Later import Model file in Services i.e (services/auth.js)
+
+create a function as per you want 
+
+async addUser(){
+
+}
+
+
+modules.exports = {
+
+addUser,ETC...
+
+}
+
+
+--------------------------------------------------------------
+
+Later import Model file in Services i.e (controller/auth.js)
+
+create a function as per you want 
+
+async addUser(){
+
+}
+
+
+modules.exports = {
+
+addUser,ETC...
+
+}
+
+
+--------------------------------------------------------------
+
+In Vaidators folder create Validator/auth.js file
+
+async function add() {
+  let validation = {
+    firstName: "required|string",
+    lastName: "required|string",
+    email: "required|string",
+    phoneNumber: "required|integer",
+    password: "required|string",
+    countryCode: "integer",
+  };
+  return validation;
+}
+
+module.exports = {
+  add
+};
+
+
+--------------------------------------------------------------
+
+In controller import service and validators files respectively
+and import validators package.
+
+
+
+create a function as per you want 
+
+async addUser(){
+
+}
+
+
+modules.exports = {
+
+addUser,ETC...
+
+}
+
+
+--------------------------------------------------------------
+
+
+Later ipmport controller in router
+
+if there is any middleware import it here
+
+create a main router.js file in main foldren where index.js exist
+
+
+
+
+
+
+
+
+
+
+
 
 
