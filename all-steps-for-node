@@ -1,0 +1,75 @@
+create folder
+
+File - .env
+config
+DB
+
+model
+services
+controller
+router
+formatter
+validators
+
+In .env file set all the details (PORT,DBPORT,HOST,USER,KEY,PASSWORD)
+
+Later in config/config.js file 
+
+-------------------------------
+
+require("dotenv").config();
+const config = {
+  port: process.env.PORT, etc...
+  }
+
+export config;
+
+-------------------------------
+
+Later in DB/connection.js
+
+import config file
+
+connect knex ----------------
+
+const config = require("../config/config");
+const knex = require("knex")({
+  client: "mysql2",
+  connection: {
+    host: config.host, ETC...
+  },
+});
+
+knex
+  .raw("SELECT 1")
+  .then(() => {
+    console.log("DB Connected Successfully");
+    })
+  .catch((err) => {
+    return console.log(err);
+  });
+
+module.exports = knex;
+
+
+-------------------------------
+
+Than in index.js file import express 
+const connection = require("./DB/connection.js)
+require("dotenv")        ------------IMP-------------
+
+
+const port = config.port;       ------------IMP-------------
+
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.listen(port, () => console.log(`Listening to ${port}`));
+
+
+
+
+
+
